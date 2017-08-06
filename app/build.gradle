@@ -19,7 +19,19 @@ android {
     }
 }
 
+/**
+ *  LIBRARY VERSIONS
+ */
+
+def DAGGER_VERSION = 2.7
+
 dependencies {
+
+    annotationProcessor "com.google.dagger:dagger-compiler:$DAGGER_VERSION"
+    compile "com.google.dagger:dagger:$DAGGER_VERSION"
+
+
+
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
