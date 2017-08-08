@@ -8,16 +8,29 @@ import android.support.v7.app.AppCompatActivity;
 import com.enthusiastmartin.android_clean_architecture.presentation.AndroidApplication;
 import com.enthusiastmartin.android_clean_architecture.presentation.core.presenter.BaseActivityPresenter;
 import com.enthusiastmartin.android_clean_architecture.presentation.internal.component.ApplicationComponent;
-
 /**
  * Created by martin on 8/6/17.
  */
 
+/**
+ * Base Activity
+ *
+ * Initialise dependency injection via initInjector in onCreate method.
+ * Binds to activity lifecycle with provided presenter
+ *
+ */
 public abstract class BaseActivity extends AppCompatActivity {
 
+  /**
+   *
+   * @return @{@link BaseActivityPresenter} instance of activity presenter
+   */
   protected abstract @Nullable
   BaseActivityPresenter getPresenter();
 
+  /**
+   *  Dependency injection initializer
+   */
   protected abstract void initInjector();
 
   @Override
@@ -93,11 +106,9 @@ public abstract class BaseActivity extends AppCompatActivity {
   /**
    * Get main application component
    *
-   * @return
+   * @return @{@link ApplicationComponent}
    */
   protected ApplicationComponent getApplicationComponent() {
     return ((AndroidApplication) getApplication()).getApplicationComponent();
   }
-
-
 }

@@ -14,18 +14,24 @@ import com.enthusiastmartin.android_clean_architecture.presentation.core.present
 /**
  * Created by martin on 8/6/17.
  */
-
+/**
+ * Base v4 support Fragment @{@link Fragment}
+ *
+ * Initialise dependency injection via initInjector in onCreate method.
+ * Binds to fragment lifecycle with provided presenter
+ *
+ */
 public abstract class BaseV4Fragment extends Fragment {
 
   /**
    *
-   * @return
+   * @return @{@link BaseFragmentPresenter}
    */
   protected abstract @Nullable
   BaseFragmentPresenter getPresenter();
 
   /**
-   *
+   *  Dependency injection initializer
    */
   protected abstract void initInjector();
 
